@@ -1,0 +1,11 @@
+@import "variables";
+
+@function rem($px) {
+  @return ($px / $vwFontSize) * 1rem;
+}
+
+@mixin text-overflow() {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
