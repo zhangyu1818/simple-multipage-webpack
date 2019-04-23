@@ -17,16 +17,8 @@ const base = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"]
-          }
-        }
-      },
-      {
-        test: /\.(jpg|png|gif)$/,
-        use: {
-          loader: "url-loader",
-          options: {
-            limit: 4096
+            presets: ["@babel/preset-env"],
+            plugins: ["@babel/plugin-proposal-class-properties"]
           }
         }
       },
@@ -92,6 +84,15 @@ const dev = {
             ]
           }
         ]
+      },
+      {
+        test: /\.(jpg|png|gif)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 4096
+          }
+        }
       },
       {
         test: /\.css$/,
@@ -161,6 +162,16 @@ const prod = {
           "css-loader",
           "postcss-loader"
         ]
+      },
+      {
+        test: /\.(jpg|png|gif)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 4096,
+            name: "[name].[ext]"
+          }
+        }
       }
     ]
   },
